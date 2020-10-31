@@ -11,8 +11,8 @@ namespace ProblemeCuNumere1
     {
         static void Main(string[] args)
         {
-            //EcuatieDeGradul1_1();
-            //EcuatieDeGradul2_2();
+            EcuatieDeGradul1_1();
+            EcuatieDeGradul2_2();
         }
 
         private static void EcuatieDeGradul2_2()
