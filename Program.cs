@@ -13,6 +13,7 @@ namespace ProblemeCuNumere1
         {
             EcuatieDeGradul1_1();
             EcuatieDeGradul2_2();
+            Console.WriteLine("Buna ziua!");
         }
 
         private static void EcuatieDeGradul2_2()
