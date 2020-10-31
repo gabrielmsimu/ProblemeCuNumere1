@@ -11,9 +11,29 @@ namespace ProblemeCuNumere1
     {
         static void Main(string[] args)
         {
-            EcuatieDeGradul1_1();
-            EcuatieDeGradul2_2();
-            Console.WriteLine("Buna ziua!");
+            //EcuatieDeGradul1_1();
+            //EcuatieDeGradul2_2();
+            NSeDivideCuK_3();
+            
+        }
+
+        private static void NSeDivideCuK_3()
+        {
+            int n, k;
+            Console.WriteLine("Introduceti valoarea lui n");
+            n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Introduceti valoarea lui k");
+            k = int.Parse(Console.ReadLine());
+
+            if (n % k == 0)
+            {
+                Console.WriteLine($"{n} se divide cu {k}");
+            }
+            else
+            {
+                Console.WriteLine($"{n} nu se divide cu {k}");
+            }
+
         }
 
         private static void EcuatieDeGradul2_2()
