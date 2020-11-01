@@ -11,10 +11,61 @@ namespace ProblemeCuNumere1
     {
         static void Main(string[] args)
         {
-            EcuatieDeGradul1_1();
-            EcuatieDeGradul2_2();
-            NSeDivideCuK_3();
+            //EcuatieDeGradul1_1();
+            //EcuatieDeGradul2_2();
+            //NSeDivideCuK_3();
+            //AnBisect_4();
+            ExtragetiAkaCifra_5();
             
+        }
+
+        private static void ExtragetiAkaCifra_5()
+        {
+            Console.WriteLine("Introduceti a cata cifre doriti sa extrageti din numar");
+            int k = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Introduceti numarul pentru care doriti sa extrageti a {k}a cifra");
+            int n = int.Parse(Console.ReadLine());
+            int cifra, c = k;
+
+            do
+            {
+                cifra = n % 10;
+                n = n / 10;
+                k--;
+
+            } while (k > 0);
+
+            Console.WriteLine($"A {c}a cifra este {cifra}.");
+
+        }
+
+        private static void AnBisect_4()
+        {
+            int an;
+            Console.WriteLine("Introduceti anul pentru testare:");
+            an = int.Parse(Console.ReadLine());
+            if (an % 4 != 0)
+            {
+                Console.WriteLine("anul este obisnuit");
+            }
+            else
+            {
+                if (an % 100 != 0)
+                {
+                    Console.WriteLine("anul este bisect");
+                }
+                else
+                {
+                    if (an % 400 != 0)
+                    {
+                        Console.WriteLine("anul este obisnuit");
+                    }
+                    else
+                    {
+                        Console.WriteLine("anul este bisect");
+                    }
+                }
+            }
         }
 
         private static void NSeDivideCuK_3()
