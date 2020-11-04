@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,14 +13,91 @@ namespace ProblemeCuNumere1
     {
         static void Main(string[] args)
         {
-            //EcuatieDeGradul1_1();
-            //EcuatieDeGradul2_2();
-            //NSeDivideCuK_3();
-            //AnBisect_4();
+            EcuatieDeGradul1_1();
+            EcuatieDeGradul2_2();
+            NSeDivideCuK_3();
+            AnBisect_4();
             ExtragetiAkaCifra_5();
-            
+            LungimileLaturilorUnuiTriunghui_6();
+            InversareValori_7();  
+            Inversari2_8();
         }
 
+
+        /// <summary>
+        /// Problema 8
+        /// </summary>
+        private static void Inversari2_8()
+        {
+            Console.WriteLine("Introduceti pe rand cele doua valori (a si b)");
+            Console.WriteLine("A are valoarea: ");
+            string a = (Console.ReadLine());
+            Console.WriteLine("B are valoarea: ");
+            string b = (Console.ReadLine());
+
+            int lungimeA = a.Length;
+            int lungimeB = b.Length;
+
+            int A = int.Parse(a);
+            int B = int.Parse(b);
+
+            A = A + B * (int)Math.Pow(10, lungimeB);
+            A = A / (int)Math.Pow(10,lungimeB);
+            Console.WriteLine("Noul A este " + A);
+
+            A = int.Parse(a);
+            B = B + A * (int)Math.Pow(10, lungimeA);
+            B = B / (int)Math.Pow(10, lungimeA);
+            Console.WriteLine("Noul B este " + B);
+
+        }
+
+
+        /// <summary>
+        /// Problema 7
+        /// </summary>
+        private static void InversareValori_7()
+        {
+            Console.WriteLine("Introduceti pe rand cele doua valori (a si b)");
+            Console.WriteLine("A are valoarea: ");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("B are valoarea: ");
+            int b = int.Parse(Console.ReadLine());
+
+
+            int max = a;
+            a = b;
+            b = max;
+            Console.WriteLine("Dupa schimbare: ");
+            Console.WriteLine("A: " + a + " B: " + b);
+        }
+
+
+        /// <summary>
+        /// Problema 6
+        /// </summary>
+        private static void LungimileLaturilorUnuiTriunghui_6()
+        {
+            Console.WriteLine("Introduceti pe rand lungimie laturilor.");
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c = int.Parse(Console.ReadLine());
+
+            if (a + b > c && b + c > a && c + a > b)
+            {
+                Console.WriteLine("Lungimile laturilor pot forma un triunghi");
+            }
+
+            else
+            {
+                Console.WriteLine("Lungimile laturilor nu pot forma un triunghi");
+            }
+        }
+
+
+        /// <summary>
+        /// Problema 5
+        /// </summary>
         private static void ExtragetiAkaCifra_5()
         {
             Console.WriteLine("Introduceti a cata cifre doriti sa extrageti din numar");
@@ -39,6 +118,9 @@ namespace ProblemeCuNumere1
 
         }
 
+        /// <summary>
+        /// Problema4
+        /// </summary>
         private static void AnBisect_4()
         {
             int an;
@@ -68,6 +150,10 @@ namespace ProblemeCuNumere1
             }
         }
 
+
+        /// <summary>
+        /// Problema 3
+        /// </summary>
         private static void NSeDivideCuK_3()
         {
             int n, k;
@@ -87,6 +173,10 @@ namespace ProblemeCuNumere1
 
         }
 
+
+        /// <summary>
+        /// Problema 2
+        /// </summary>
         private static void EcuatieDeGradul2_2()
         {
             int a, b, c, delta;
@@ -112,7 +202,9 @@ namespace ProblemeCuNumere1
            
             
         }
-
+        /// <summary>
+        /// Problema 1
+        /// </summary>
         private static void EcuatieDeGradul1_1()
         {
             int a, b, x;
