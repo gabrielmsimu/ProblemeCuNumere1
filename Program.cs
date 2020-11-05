@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
@@ -13,14 +14,119 @@ namespace ProblemeCuNumere1
     {
         static void Main(string[] args)
         {
-            EcuatieDeGradul1_1();
-            EcuatieDeGradul2_2();
-            NSeDivideCuK_3();
-            AnBisect_4();
-            ExtragetiAkaCifra_5();
-            LungimileLaturilorUnuiTriunghui_6();
-            InversareValori_7();  
-            Inversari2_8();
+            //EcuatieDeGradul1_1();
+            //EcuatieDeGradul2_2();
+            //NSeDivideCuK_3();
+            //AnBisect_4();
+            //ExtragetiAkaCifra_5();
+            //LungimileLaturilorUnuiTriunghui_6();
+            //InversareValori_7();  
+            //Inversari2_8();
+            //DivizoriiluiN_9();
+            //TestDePrimalitate_10();
+            //CifreNumarInOrdineInversa_11();
+            DivizibilitateAB_12();
+        }
+
+
+        /// <summary>
+        /// problema 12
+        /// </summary>
+        private static void DivizibilitateAB_12()
+        {
+            Console.WriteLine("Introduceti n");
+            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Introduceti inceputul intervalului");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Introduceti sfarsitul intervalului");
+            int b = int.Parse(Console.ReadLine());
+            int contor = 0;
+
+            for (int i = a; i <= b; i++)
+            {
+                if (i % n == 0)
+                {
+                    contor += 1;
+                }
+            }
+
+            Console.WriteLine(contor);
+        }
+
+        
+        /// <summary>
+        /// problema 11
+        /// </summary>
+        private static void CifreNumarInOrdineInversa_11()
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            if (n == 0)
+            {
+                Console.WriteLine("0");
+            }
+
+            while (n != 0)
+            {
+                Console.Write(n % 10 + " ");
+                n = n / 10;
+            }
+
+            
+        }
+
+
+        /// <summary>
+        /// problema 10
+        /// </summary>
+        private static void TestDePrimalitate_10()
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            bool prim = true;
+
+            for (int i = 2; i < n; i++)
+            {
+                if (n % i == 0)
+                {
+                    prim = false;
+                    break;
+                }
+            }
+
+            if (prim)
+            {
+                Console.WriteLine("Numarul este prim.");
+            }
+            else
+            {
+                if (n == 0 || n == 2 || n == 1)
+                {
+                    Console.WriteLine("Numarul este prim");
+                }
+                else
+                {
+                    Console.WriteLine("Numarul nu este prim"); 
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// problema 9
+        /// </summary>
+        private static void DivizoriiluiN_9()
+        {
+            
+            int n = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    Console.Write($"{i} ");
+                }
+            }
+
         }
 
 
@@ -29,27 +135,17 @@ namespace ProblemeCuNumere1
         /// </summary>
         private static void Inversari2_8()
         {
-            Console.WriteLine("Introduceti pe rand cele doua valori (a si b)");
-            Console.WriteLine("A are valoarea: ");
-            string a = (Console.ReadLine());
-            Console.WriteLine("B are valoarea: ");
-            string b = (Console.ReadLine());
 
-            int lungimeA = a.Length;
-            int lungimeB = b.Length;
+            int a = 10;
+            int b = 20;
 
-            int A = int.Parse(a);
-            int B = int.Parse(b);
+            Console.WriteLine($"Inainte de inversare a = {a} and b = {b}");
 
-            A = A + B * (int)Math.Pow(10, lungimeB);
-            A = A / (int)Math.Pow(10,lungimeB);
-            Console.WriteLine("Noul A este " + A);
+            a = a + b;
+            b = a - b;
+            a = a - b;
 
-            A = int.Parse(a);
-            B = B + A * (int)Math.Pow(10, lungimeA);
-            B = B / (int)Math.Pow(10, lungimeA);
-            Console.WriteLine("Noul B este " + B);
-
+            Console.WriteLine($"Dupa inversare: a = {a} and b = {b}");
         }
 
 
