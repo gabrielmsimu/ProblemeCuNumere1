@@ -25,7 +25,77 @@ namespace ProblemeCuNumere1
             //DivizoriiluiN_9();
             //TestDePrimalitate_10();
             //CifreNumarInOrdineInversa_11();
-            DivizibilitateAB_12();
+            //DivizibilitateAB_12();
+            //AniBisectiY1Y2_13();
+            Palindrom_14();
+
+
+        }
+
+
+        /// <summary>
+        /// Problema 14
+        /// </summary>
+        private static void Palindrom_14()
+        {
+            int numar = int.Parse(Console.ReadLine());
+            int replacement_nr = numar;
+            int palindrom = 0;
+
+            do
+            {
+                palindrom = palindrom * 10 + replacement_nr % 10;
+                replacement_nr /= 10;
+            } while (replacement_nr != 0);
+
+            if (palindrom == numar)
+            {
+                Console.WriteLine("Palindrom");
+            }
+            else
+            {
+                Console.WriteLine("Nu este palindrom");
+            }
+        }
+
+        /// <summary>
+        /// Problema 13
+        /// </summary>
+        private static void AniBisectiY1Y2_13()
+        {
+            int y1 = int.Parse(Console.ReadLine());
+            int y2 = int.Parse(Console.ReadLine());
+            int contor = 0;
+
+            for (int i = y1; i <= y2; i++)
+            {
+                if (i % 4 != 0)
+                { 
+                    //do nothing
+                }
+                
+                else
+                {
+                    if (i % 100 != 0)
+                    {
+                        contor++;
+                    }
+                    else
+                    {
+                        if (i % 400 != 0)
+                        {
+                            // do nothing
+                        }
+                        else
+                        {
+                            contor++;
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine($"Exista {contor} ani bisecti intre {y1} si {y2}.");
         }
 
 
