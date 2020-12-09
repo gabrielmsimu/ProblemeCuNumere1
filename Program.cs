@@ -27,9 +27,99 @@ namespace ProblemeCuNumere1
             //CifreNumarInOrdineInversa_11();
             //DivizibilitateAB_12();
             //AniBisectiY1Y2_13();
-            Palindrom_14();
+            //Palindrom_14();
+            //numere_15();
+            numere_16();
 
 
+        }
+        /// <summary>
+        /// Problema16
+        /// </summary>
+        private static void numere_16()
+        {
+            int nr1, nr2, nr3, nr4, nr5;
+
+            Console.WriteLine("Dati valoarea primului numar:");
+            nr1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Dati valoarea celui de-al doi-lea numar:");
+            nr2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Dati valoarea celui de-al 3-lea numar:");
+            nr3 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Dati valoarea celui de-al 4-lea numar:");
+            nr4 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Dati valoarea celui de-al 5-lea numar:");
+            nr5 = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Before: {nr1}, {nr2}, {nr3}, {nr4}, {nr5}");
+                            
+            int aux;
+
+            while (nr1 >= nr2 || nr2 >= nr3 || nr3 >= nr4 || nr4 >= nr5)
+            {
+                if (nr1 > nr2)
+                {
+                    aux = nr1;
+                    nr1 = nr2;
+                    nr2 = aux;
+                }
+                if (nr2 > nr3)
+                {
+                    aux = nr2;
+                    nr2 = nr3;
+                    nr3 = aux;
+                }
+                if (nr3 > nr4)
+                {
+                    aux = nr3;
+                    nr3 = nr4;
+                    nr4 = aux;
+                }
+                if (nr4 > nr5)
+                {
+                    aux = nr4;
+                    nr4 = nr5;
+                    nr5 = aux;
+                }
+
+            }
+            Console.WriteLine($"After: {nr1}, {nr2}, {nr3}, {nr4}, {nr5}");
+
+        }
+
+
+        /// <summary>
+        /// Problema 15
+        /// </summary>
+        private static void numere_15()
+        {
+            int nr1, nr2, nr3;
+
+            Console.WriteLine("Dati valoarea primului numar:");
+            nr1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Dati valoarea celui de-al doi-lea numar:");
+            nr2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Dati valoarea celui de-al 3-lea numar:");
+            nr3 = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Before: {nr1}, {nr2}, {nr3}");
+            int aux;
+
+            while (nr1 >= nr2 || nr2 >= nr3)
+            {
+                if (nr1>nr2)
+                {
+                    aux = nr1;
+                    nr1 = nr2;
+                    nr2 = aux;
+                }
+                if (nr2 > nr3)
+                {
+                    aux = nr2;
+                    nr2 = nr3;
+                    nr3 = aux;
+                }              
+
+            }
+            Console.WriteLine($"After: {nr1}, {nr2}, {nr3}");
         }
 
 
