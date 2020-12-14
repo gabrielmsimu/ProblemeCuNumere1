@@ -12,6 +12,7 @@ namespace ProblemeCuNumere1
 {
     class Program
     {
+        static Random rnd = new Random();
         static void Main(string[] args)
         {
             //EcuatieDeGradul1_1();
@@ -28,15 +29,130 @@ namespace ProblemeCuNumere1
             //DivizibilitateAB_12();
             //AniBisectiY1Y2_13();
             //Palindrom_14();
-            //numere_15();
-            numere_16();
+            //Numere_15();
+            //Numere_16();
+            //Numere_17();
+            Numere_18();
+
+            
 
 
         }
+
+        /// <summary>
+        /// Afisati descompunerea in factori primi ai unui numar n.  
+        /// De ex. pentru n = 1776 afisati 2^4 x 3^1 x 37^1. 
+        /// </summary>
+        private static void Numere_18()
+        {
+            int n = 1776;
+            Console.WriteLine(n);
+
+            int puterea;
+            string rezultat_final = "";
+
+            while (n != 1)
+            {
+                for (int i = 2; i <= n; i++)
+                {
+                    if (Prim(i) && n % i == 0)
+                    {
+                        puterea = 0;
+                        while (n % i == 0)
+                        {
+                            n = n / i;
+                            puterea++;
+                        }
+                        rezultat_final = rezultat_final + $"{i}^{puterea} x ";
+                    }
+                }
+            }
+            rezultat_final = rezultat_final.Remove(rezultat_final.Length - 2, 1);
+            Console.WriteLine(rezultat_final);
+            
+            
+            
+            //for (int i = 0; i <= 7; i++)
+            //{
+            //    Console.WriteLine($"{i},{Prim(i)}");
+            //}
+        }
+
+
+
+        /// <summary>
+        /// Aceasta functie testeaza primalitatea numerelor pentru functia Numere_18.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        private static bool Prim(int x)
+        {
+
+            
+            for (int i = 2; i <= x/2; i++)
+            {
+                if (x % i == 0)
+                {
+                    return false;
+                }
+            }
+                                   
+            return true;
+
+        }
+
+
+        /// <summary>
+        /// Determianti cel mai mare divizor comun si cel mai mic multiplu comun a doua numere. 
+        /// Folositi algoritmul lui Euclid. 
+        /// </summary>
+        private static void Numere_17()
+        {
+            //int a = rnd.Next(0, 1001);
+            //int b = rnd.Next(0, 1001);
+            int a = 1071, b = 462;
+            Console.WriteLine($"a = {a}; b= {b}");
+            int rest;
+
+            int produs = a * b;
+
+            Console.Write($"Cel mai mare divizor comun (cmmdc) dintre {a} si {b} este ");
+            if (a > b)
+            {
+                do
+                {
+                    rest = a % b;
+                    a = b;
+                    b = rest;
+                } while (rest != 0);
+                Console.Write(a);
+                Console.Write($", iar cel mai mare multiplu comun (cmmmc) este {produs / a}");
+            }
+            else
+            {
+                do
+                {
+                    rest = b % a;
+                    b = a;
+                    a = rest;
+                } while (rest != 0);
+                Console.Write(b);
+                Console.Write($", iar cel mai mare multiplu comun (cmmmc) este {produs / b}");
+            }
+            
+            
+            Console.WriteLine();
+                     
+
+        }
+
+
+
         /// <summary>
         /// Problema16
+        /// Se dau 5 numere. Sa se afiseze in ordine crescatoare. (nu folositi tablouri)
         /// </summary>
-        private static void numere_16()
+        private static void Numere_16()
         {
             int nr1, nr2, nr3, nr4, nr5;
 
@@ -89,8 +205,9 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema 15
+        /// Se dau 3 numere. Sa se afiseze in ordine crescatoare. 
         /// </summary>
-        private static void numere_15()
+        private static void Numere_15()
         {
             int nr1, nr2, nr3;
 
@@ -125,6 +242,8 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema 14
+        /// Determianti daca un numar n este palindrom. 
+        /// Un numar este palindrom daca citit invers obtinem un numar egal cu el, de ex. 121 sau 12321. 
         /// </summary>
         private static void Palindrom_14()
         {
@@ -150,6 +269,7 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema 13
+        /// Determianti cati ani bisecti sunt intre anii y1 si y2.
         /// </summary>
         private static void AniBisectiY1Y2_13()
         {
@@ -191,6 +311,7 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// problema 12
+        /// Determinati cate numere integi divizibile cu n se afla in intervalul [a, b]. 
         /// </summary>
         private static void DivizibilitateAB_12()
         {
@@ -213,9 +334,10 @@ namespace ProblemeCuNumere1
             Console.WriteLine(contor);
         }
 
-        
+
         /// <summary>
         /// problema 11
+        /// Afisati in ordine inversa cifrele unui numar n. 
         /// </summary>
         private static void CifreNumarInOrdineInversa_11()
         {
@@ -238,6 +360,7 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// problema 10
+        /// Test de primalitate: determinati daca un numar n este prim.
         /// </summary>
         private static void TestDePrimalitate_10()
         {
@@ -274,12 +397,13 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// problema 9
+        /// Afisati toti divizorii numarului n. 
         /// </summary>
         private static void DivizoriiluiN_9()
         {
             
             int n = int.Parse(Console.ReadLine());
-            for (int i = 1; i <= n; i++)
+            for (int i = 1; i <= n/2; i++)
             {
                 if (n % i == 0)
                 {
@@ -292,6 +416,8 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema 8
+        /// (Swap restrictionat) Se dau doua variabile numerice a si b ale carori valori sunt date de intrare. 
+        /// Se cere sa se inverseze valorile lor fara a folosi alte variabile suplimentare.   
         /// </summary>
         private static void Inversari2_8()
         {
@@ -311,6 +437,8 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema 7
+        /// (Swap) Se dau doua variabile numerice a si b ale carori valori sunt date de intrare. 
+        /// Se cere sa se inverseze valorile lor. 
         /// </summary>
         private static void InversareValori_7()
         {
@@ -331,6 +459,7 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema 6
+        /// Detreminati daca trei numere pozitive a, b si c pot fi lungimile laturilor unui triunghi. 
         /// </summary>
         private static void LungimileLaturilorUnuiTriunghui_6()
         {
@@ -353,6 +482,7 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema 5
+        /// Extrageti si afisati a k-a cifra de la sfarsitul unui numar. Cifrele se numara de la dreapta la stanga. 
         /// </summary>
         private static void ExtragetiAkaCifra_5()
         {
@@ -376,6 +506,7 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema4
+        /// Detreminati daca un an y este an bisect. 
         /// </summary>
         private static void AnBisect_4()
         {
@@ -409,6 +540,7 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema 3
+        /// Determinati daca n se divide cu k, unde n si k sunt date de intrare.
         /// </summary>
         private static void NSeDivideCuK_3()
         {
@@ -432,6 +564,8 @@ namespace ProblemeCuNumere1
 
         /// <summary>
         /// Problema 2
+        /// Rezolvati ecuatia de gradul 2 cu o necunoscuta: ax^2 + bx + c = 0, unde a, b si c sunt date de intrare. 
+        /// Tratati toate cazurile posibile. 
         /// </summary>
         private static void EcuatieDeGradul2_2()
         {
@@ -460,6 +594,7 @@ namespace ProblemeCuNumere1
         }
         /// <summary>
         /// Problema 1
+        /// Rezolvati ecuatia de gradul 1 cu o necunoscuta: ax+b = 0, unde a si b sunt date de intrare. 
         /// </summary>
         private static void EcuatieDeGradul1_1()
         {
