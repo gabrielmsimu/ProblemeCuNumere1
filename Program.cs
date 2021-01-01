@@ -32,11 +32,52 @@ namespace ProblemeCuNumere1
             //Numere_15();
             //Numere_16();
             //Numere_17();
-            Numere_18();
+            //Numere_18();
+
+            Numere_20();
 
             
 
 
+        }
+
+
+        /// <summary>
+        /// Afisati fractia m/n in format zecimal cu perioada intre paranteze (daca e cazul). 
+        /// Exemplu 13/30 = 0.4(3)
+        /// </summary>
+        private static void Numere_20()
+        {
+            int m = 13;
+            int n = 30;
+            double d;
+
+            d = (double)m / n;
+            Console.Write($"{Math.Truncate(d)},");
+            double parte_fractionara = d - Math.Truncate(d);
+            
+            while (parte_fractionara != 0)
+            {
+                double x = Math.Truncate(parte_fractionara * 100 % 10);
+                double y = Math.Truncate(parte_fractionara * 10);
+
+                if (x == y)
+                {
+                    Console.Write($"({x})");
+                    parte_fractionara = 0;
+                }
+                else
+                {
+                    Console.Write($"{y}");
+                    parte_fractionara = parte_fractionara * 10 - Math.Truncate(parte_fractionara * 10);
+                }
+                    
+
+
+            }
+
+
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -45,7 +86,7 @@ namespace ProblemeCuNumere1
         /// </summary>
         private static void Numere_18()
         {
-            int n = 1776;
+            int n = 2483;
             Console.WriteLine(n);
 
             int puterea;
@@ -69,13 +110,6 @@ namespace ProblemeCuNumere1
             }
             rezultat_final = rezultat_final.Remove(rezultat_final.Length - 2, 1);
             Console.WriteLine(rezultat_final);
-            
-            
-            
-            //for (int i = 0; i <= 7; i++)
-            //{
-            //    Console.WriteLine($"{i},{Prim(i)}");
-            //}
         }
 
 
@@ -598,7 +632,8 @@ namespace ProblemeCuNumere1
         /// </summary>
         private static void EcuatieDeGradul1_1()
         {
-            int a, b, x;
+            int a, b;
+            double x;
             Console.WriteLine("Sa rezolvam o ecuatie de gradul 1: ax + b = 0");
             Console.WriteLine("Introduceti valoarea lui a");
             a = int.Parse(Console.ReadLine());
