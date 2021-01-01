@@ -71,9 +71,6 @@ namespace ProblemeCuNumere1
                     Console.Write($"{y}");
                     parte_fractionara = parte_fractionara * 10 - Math.Truncate(parte_fractionara * 10);
                 }
-                    
-
-
             }
 
 
